@@ -10,7 +10,7 @@ Klonen Sie dieses Repository direkt in Eclipse, indem Sie `File > Import ...` w�
 
 Klicken Sie auf `Next >` und vergessen Sie im nächsten Dialog nicht, ihre GitHub-Authentifizierungsdaten anzugeben (damit Sie später auch wieder etwas hochladen können).
 
-Wählen Sie unter `Branch Selection` den Branch `main` aus, und danach das Verzeichnis auf ihrer lokalen Festplatte.
+Wählen Sie unter `Branch Selection` den Branch `master` aus, und danach das Verzeichnis auf ihrer lokalen Festplatte.
 
 Letzter Schritt: Das git-repository enthält auch ein Eclipse-Projekt, das sie importieren möchten. Wählen Sie dazu `Import existing Eclipse projects`.
 
