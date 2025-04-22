@@ -6,7 +6,7 @@ Diese Übung wird erstmals als Branch auf GitHub eingereicht. Dazu gibt es unten
 
 ## a) Repository klonen und Eclipse-Projekt anlegen
 
-Klonen Sie dieses Repository direkt in Eclipse, indem Sie `File > Import ...` wählen. Im Dialog danach wählen Sie den `Git`-Zweig und `Projects from Git`, gefolgt von `Clone URI`. Die URI bekommen Sie, indem Sie auf GitHub den grünen Knopf `Code` anklicken, und dann den mit https beschrifteten Link kopieren. Für diese Übung ist das `https://github.com/idh-cologne-java-2-summer-2023/exercise-02.git`.
+Klonen Sie dieses Repository direkt in Eclipse, indem Sie `File > Import ...` wählen. Im Dialog danach wählen Sie den `Git`-Zweig und `Projects from Git`, gefolgt von `Clone URI`. Die URI bekommen Sie, indem Sie auf GitHub den grünen Knopf `Code` anklicken, und dann den mit https beschrifteten Link kopieren. Für diese Übung ist das `https://github.com/idh-cologne-summer-java-2025/exercise-02`.
 
 Klicken Sie auf `Next >` und vergessen Sie im nächsten Dialog nicht, ihre GitHub-Authentifizierungsdaten anzugeben (damit Sie später auch wieder etwas hochladen können).
 
