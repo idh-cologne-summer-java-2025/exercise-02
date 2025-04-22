@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ATM {
+	// Änderung!!! hier ist eine Änderung.
+	
 	int accountBalance = 100;
 
 	/**
