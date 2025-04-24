@@ -61,7 +61,6 @@ public class ATMFinished {
 	    return;
 	}
 
-	// withdraw
 	konto.withdraw(amount);
 	bargeldStand = bargeldStand - amount;
 	System.out.println("Ok, here is your money, enjoy!");
@@ -77,10 +76,7 @@ public class ATMFinished {
     };
 
     /**
-     * Retrieves the account given an id.
-     * 
-     * @param id
-     * @return
+     * Gets the account with a given id.
      */
     public Konto getKonto(int id) {
 	for (int i = 0; i < konten.length; i++) {
