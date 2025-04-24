@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 
 public class ATM {
 	
+    int i = 0;
+	
+	
 	int accountBalance = 100;
 
 	/**
