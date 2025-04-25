@@ -1,1 +1,5 @@
-.idea/ # ignore all IntelliJ files
+.idea/
+
+# ignore all IntelliJ files
+
+exercise-02.iml
