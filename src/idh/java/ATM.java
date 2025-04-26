@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ATM {
-	int accountBalance = 100;
+	int[] accountBalances = new int[10];
+	int atmCash = 100;
 
 	/**
 	 * Main command loop of the ATM Asks the user to enter a number, and passes this
@@ -14,33 +15,56 @@ public class ATM {
 	 */
 	public void run() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		 accountBalances[1] = 200; 
+	        accountBalances[2] = 100; 
+	        accountBalances[3] = 50;
+	        accountBalances[4] = 50;
+	        accountBalances[5] = 50;
+	        accountBalances[6] = 50;
 		while (true) {
 			try {
-				System.out.print("Enter the amount to withdraw: ");
+				System.out.print("Enter your account number (0-9): ");
+                int accountNumber = Integer.parseInt(br.readLine());
+                
+                if (accountNumber < 0 || accountNumber >= accountBalances.length) {
+                    System.out.println("Account not found.");
+                    continue;
+                }
+                System.out.print("Enter the amount to withdraw: ");
 				int amount = Integer.parseInt(br.readLine());
-				cashout(amount);
-			} catch (Exception e) {
-				break;
-			}
-		}
+				cashout(accountNumber, amount);
+            } catch (Exception e) {
+                System.out.println("Invalid input. Exiting...");
+                break;
+            }
+        }
 	}
 
-	public void cashout(int amount) {
-		if (amount < accountBalance) {
-			accountBalance = accountBalance - amount;
-			System.out.println("Ok, here is your money, enjoy!");
-		} else {
-			System.out.println("Sorry, not enough money in the bank.");
-		}
+	 public void cashout(int accountNumber, int amount) {
+	        int balance = accountBalances[accountNumber];
 
-	};
+	        
+	        if (amount > balance) {
+	            System.out.println("Sorry, you don't have enough money in the bank.");
+	            return;
+	        }
 
-	/**
-	 * Launches the ATM
-	 */
-	public static void main(String[] args) {
-		ATM atm = new ATM();
-		atm.run();
-	};
+	        if (amount > atmCash) {
+	            System.out.println("Sorry, the ATM doesn't have that much cash anymore.");
+	            return;
+	        }
 
-}
+	        accountBalances[accountNumber] -= amount;
+	        atmCash -= amount;
+
+	        System.out.println("Ok, here you go!");
+	    }
+
+	    /**
+	     * Launches the ATM
+	     */
+	    public static void main(String[] args) {
+	        ATM atm = new ATM();
+	        atm.run();
+	    }
+	}
