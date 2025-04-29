@@ -7,7 +7,7 @@ public class ATM {
 
 	int[] accountNumbers = {1001, 1002, 1003};
 	int[] accountBalances = {200, 1050, 500};
-	int cashInMachine = 1000; // 🆕 Automatenbestand
+	int cashInMachine = 1000;
 
 	public void run() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -50,7 +50,7 @@ public class ATM {
 			System.out.println("Sorry, the ATM doesn't have enough cash.");
 		} else {
 			accountBalances[index] = accountBalances[index] - amount;
-			cashInMachine = cashInMachine - amount; // 🆕 Bargeldbestand wird reduziert
+			cashInMachine = cashInMachine - amount; 
 			System.out.println("Ok, here is your money, enjoy!");
 		}
 	}
