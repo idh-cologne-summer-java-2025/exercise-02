@@ -2,12 +2,13 @@ package idh.java;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-//changing sth
+
 public class ATM {
 	int accountBalance = 1000;
 	User users[] = new User[2]; //Array with UserObjects, needs to be filled though ... could write a method for creating User Objects and putting them in the Array, not necessary this time.
 	User u1 = new User(1, 50);
 	User u2 = new User(2, 120);
+	
 //	trying to fill users-array with User objects, some kind of syntax error seems to occur 
 //	users[1] = u1;
 //	users[2] = u2;
@@ -18,11 +19,17 @@ public class ATM {
 	 * loop breaks and the program exists
 	 */
 	public void run() {
+		users[0] = u1;
+		users[1] = u2;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			try {
-				System.out.print("Enter ID: ");
+				System.out.print("Enter ID: " + "\n" + "Type \"exit\" to exit the application.");
+				if(br.readLine().equalsIgnoreCase("exit")) {
+					System.out.println("Exiting.");
+					System.exit(0);
+				}
 				int id = Integer.parseInt(br.readLine());
 //				for(int i = 0; i < users.length; i++) {
 //					if(users[i].getId()==id) {
@@ -35,18 +42,20 @@ public class ATM {
 				 catch (Exception e) {
 				System.err.println("Something went wrong.");
 				e.printStackTrace();
-				break;
+				System.exit(0);
 			}
 		}
 	}
 
 	public void cashout(int id, int amount) {
 		for(int j = 0; j<users.length; j++) {
-		if (id==users[j].getId() && amount < accountBalance) {
+		if (id==users[j].getId() & amount < accountBalance) {
 			accountBalance = accountBalance - amount;
 			System.out.println("Ok, here is your money, enjoy!");
+			
 		} else {
 			System.out.println("Sorry, not enough money in the bank.");
+			run();
 		}
 	}
 	};
