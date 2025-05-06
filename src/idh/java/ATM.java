@@ -16,20 +16,36 @@ public class ATM {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			try {
+				System.out.print("Enter your account number: ");
+				int accountNumber = Integer.parseInt(br.readLine());
+				cashout(accountNumber);
+			} catch (Exception e) {
+				break;
+			}
+		
+		while (true) {
+			try {
 				System.out.print("Enter the amount to withdraw: ");
 				int amount = Integer.parseInt(br.readLine());
 				cashout(amount);
+				int accountNumber = Integer.parseInt(br.readLine());
+				cashout(accountNumber);
 			} catch (Exception e) {
 				break;
 			}
 		}
+		}
 	}
 
 	public void cashout(int amount) {
+		int ATMsupply = 1000;
 		if (amount < accountBalance) {
 			accountBalance = accountBalance - amount;
 			System.out.println("Ok, here is your money, enjoy!");
-		} else {
+		} else if (amount < ATMsupply) {
+			System.out.println("Ok, here is your money, enjoy!");
+		}
+		else {
 			System.out.println("Sorry, not enough money in the bank.");
 		}
 
