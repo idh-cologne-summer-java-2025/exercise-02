@@ -25,9 +25,10 @@ public class User {
 		return balance;
 	}
 
-	public void setBalance(int balance) {
+/*	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+*/
 
 	public String getName() {
 		return name;
@@ -38,8 +39,9 @@ public class User {
 	public int getId() {
 		return this.id;
 	}
-	public void setId(int id) {
+	
+	/*public void setId(int id) {
 		this.id = id;
 	}
-
+	*/
 }
