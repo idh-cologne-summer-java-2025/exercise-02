@@ -47,7 +47,7 @@ public class ATM {
 			System.out.println("Sorry, the ATM doesn't have that much cash anymore.");
 		}
 		else {
-			accountBalance = accountBalance - amount;
+			acc.setAccountBalance(amount);
 			cash = cash - amount;
 			System.out.println("Ok, here is your money, enjoy!");
 		}

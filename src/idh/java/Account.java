@@ -21,7 +21,7 @@ public class Account {
 		return accountID;
 	}
 	
-	protected void setAccountBalance(int accBal) {
-		accountBalance = accBal;
+	protected void setAccountBalance(int abgGeld) {
+		accountBalance = accountBalance - abgGeld;
 	}
 }
