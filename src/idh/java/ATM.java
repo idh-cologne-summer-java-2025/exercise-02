@@ -2,45 +2,58 @@ package idh.java;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ATM {
-	int accountBalance = 100;
+    int atmCashAvailable = 500;
+    Map<Integer, Integer> accounts = new HashMap<>();
 
-	/**
-	 * Main command loop of the ATM Asks the user to enter a number, and passes this
-	 * number to the function cashout(...) which actually does the calculation and
-	 * produces money. If the user enters anything else than an integer number, the
-	 * loop breaks and the program exists
-	 */
-	public void run() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		while (true) {
-			try {
-				System.out.print("Enter the amount to withdraw: ");
-				int amount = Integer.parseInt(br.readLine());
-				cashout(amount);
-			} catch (Exception e) {
-				break;
-			}
-		}
-	}
+    public ATM() {
+        accounts.put(123, 100);
+				accounts.put(444, 400);
+        accounts.put(666, 600);
+        accounts.put(777, 700);
+    }
 
-	public void cashout(int amount) {
-		if (amount < accountBalance) {
-			accountBalance = accountBalance - amount;
-			System.out.println("Ok, here is your money, enjoy!");
-		} else {
-			System.out.println("Sorry, not enough money in the bank.");
-		}
+    public void run() {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while (true) {
+            try {
+                System.out.print("Enter your account number: ");
+                int accountNumber = Integer.parseInt(br.readLine());
 
-	};
+                if (!accounts.containsKey(accountNumber)) {
+                    System.out.println("Account not found.");
+                    continue;
+                }
+								
+                System.out.print("Enter the amount to withdraw: ");
+                int amount = Integer.parseInt(br.readLine());
 
-	/**
-	 * Launches the ATM
-	 */
-	public static void main(String[] args) {
-		ATM atm = new ATM();
-		atm.run();
-	};
+                cashout(accountNumber, amount);
+            } catch (Exception e) {
+                break;
+            }
+        }
+    }
 
+    public void cashout(int accountNumber, int amount) {
+        int balance = accounts.get(accountNumber);
+
+        if (amount > atmCashAvailable) {
+            System.out.println("Sorry, the ATM doesn't have that much cash anymore. Best I can do is "+ atmCashAvailable + ". Please try again tomorrow.");
+        } else if (amount > balance) {
+            System.out.println("Oops. Low balance: " + balance);
+        } else {
+            atmCashAvailable -= amount;
+           	accounts.put(accountNumber, balance - amount);
+            System.out.println("Ok, here you go! Your new balance: " + (balance-amount));
+        }
+    }
+
+    public static void main(String[] args) {
+        ATM atm = new ATM();
+        atm.run();
+    }
 }
