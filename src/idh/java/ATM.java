@@ -44,7 +44,7 @@ public class ATM {
         if (amount > atmCashAvailable) {
             System.out.println("Sorry, the ATM doesn't have that much cash anymore. Best I can do is "+ atmCashAvailable + ". Please try again tomorrow.");
         } else if (amount > balance) {
-            System.out.println("Oops. Low balance: " + balance);
+            System.out.println("Oops. Low balance: " + balance + " Äpfel.");
         } else {
             atmCashAvailable -= amount;
            	accounts.put(accountNumber, balance - amount);
