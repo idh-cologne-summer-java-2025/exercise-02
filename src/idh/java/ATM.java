@@ -11,9 +11,9 @@ public class ATM {
 
     public ATM() {
         accounts.put(123, 100);
-				accounts.put(444, 400);
         accounts.put(666, 600);
         accounts.put(777, 700);
+				accounts.put(444, 401);
     }
 
     public void run() {
